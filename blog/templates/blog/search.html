@@ -1,0 +1,30 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}Seach | {% endblock %}
+
+{% block content %}
+<div class="row g-5">
+    <div class="d-flex justify-content-center">
+
+        <div class="col-md-8">
+            <h1>Resultados de la busqueda!!</h1>
+            <h2>Consulta: {{ query }}</h2>
+            <!-- Lista de categorias -->
+            {% for post in posts %}
+            <article class="blog-post">
+                <h2 class="display-5 link-body-emphasis mb-1">{{ post.title }}</h2>
+                <p class="blog-post-meta">{{ post.created_at|timesince }} ago</p>
+        
+                <p>{{post.intro}}</p>
+                <a href="{% url 'post_detail' post.category.slug post.slug %}"  class="btn btn-outline-secondary">Leer mas...</a>
+                <hr>
+            </article>
+            {% empty %}
+            <div class="alert alert-warning mt-4" role="alert">
+               No hay resultados con la consulta especificada!. 
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>    
+{% endblock %}
