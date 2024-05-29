@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-xz0-*nlk71nhch5)k9bnd1%&9ko-)5%#7y)5ry85p@d50(lm1j
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['baa9-2806-2f0-1141-b402-701d-2cfd-ffad-82f0.ngrok-free.app']
+ALLOWED_HOSTS = ['127.0.0.1','baa9-2806-2f0-1141-b402-701d-2cfd-ffad-82f0.ngrok-free.app']
 CSRF_TRUSTED_ORIGINS = ["https://baa9-2806-2f0-1141-b402-701d-2cfd-ffad-82f0.ngrok-free.app"]
 
 
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.sitemaps',
     'django.contrib.staticfiles',
 
     'blog'
@@ -119,6 +120,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

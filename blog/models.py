@@ -11,6 +11,9 @@ class Category(models.Model):
     
     def __str__(self):
         return self.title
+    
+    def get_absolute_url(self):
+        return '/%s/' % self.slug
 
 class Post(models.Model):
 
@@ -29,9 +32,13 @@ class Post(models.Model):
     body = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     status = models.CharField(max_length=10, choices=CHOICES_STATUS, default=ACTIVE)
+    image = models.ImageField(upload_to='upload/', blank=True, null=True)
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return '/%s/%s/' % (self.category.slug, self.slug)
 
 class Comment(models.Model):
     post = models.ForeignKey(Post, related_name='comments', on_delete=models.CASCADE)

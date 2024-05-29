@@ -6,10 +6,15 @@
 <div class="row g-5">
     <div class="d-flex justify-content-center">
 
-        <div class="col-md-8">
+        <div class="col-md-8 mt-2">
             <!-- Lista de Posts -->
             {% for post in posts %}
             <article class="blog-post">
+                {% if post.image %}
+                  <figure class="figure">
+                    <img src="{{post.image.url}}" class="figure-img img-fluid rounded" alt="{{post.title}}">
+                  </figure>
+                {% endif %}
                 <h2 class="display-5 link-body-emphasis mb-1">{{ post.title }}</h2>
                 <p class="blog-post-meta">{{ post.created_at|timesince }} ago</p>
         
